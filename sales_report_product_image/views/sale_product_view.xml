@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_order_image_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.sale.image</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="after">
+                <field name="rental_duration_in_days" column_invisible="not parent.is_rental_order" invisible="not is_rental or not is_product_rentable" optional="show"/>
+            </xpath>        
+            <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="before">
+                <field name="rental_company_fees" column_invisible="not parent.is_rental_order" invisible="not is_rental or not is_product_rentable" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="before">
+                <field name="rental_price_per_day" column_invisible="not parent.is_rental_order" invisible="not is_rental or not is_product_rentable" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form//field[@name='product_id']" position="before">
+                <field name="image_small" widget="image" />
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree//field[@name='product_id']" position="before">
+                <field name="image_small" widget="image" class="float-start oe_avatar"/>
+            </xpath>
+            <field name="payment_term_id" position="before">
+                <field name="displayed_company_in_printed_document"/>
+            </field>
+            <field name="payment_term_id" position="before">
+                <field name="print_image"/>
+                <field name="image_sizes" required="(print_image != False)"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
