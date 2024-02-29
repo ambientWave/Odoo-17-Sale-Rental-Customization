@@ -451,6 +451,7 @@
                                     <p>Rodyan | Media Solutions<br></br>Anas Bin Malik, 4390<br></br>Al Malqa, 6814<br></br>Saudi Arabia</p>
         
                                 </span>
+                                <li t-if="not company.company_details"/>
                                 <li t-else="">
                                     <span t-field="company.company_details">
                                         <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 w-100 opacity-75 text-muted text-center">
@@ -473,6 +474,7 @@
                                 <span>
                                     <p>CINEARM | Equipment &amp; Crew<br></br>Anas Bin Malik, 4390<br></br>Al Malqa, 6814<br></br>Saudi Arabia</p>
                                 </span>
+                                <li t-if="not company.company_details"/>
                                 <li t-else="">
                                     <span t-field="company.company_details">
                                         <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 w-100 opacity-75 text-muted text-center">
